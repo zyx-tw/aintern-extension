@@ -116,6 +116,23 @@ const handlers = {
   },
   async "record-status"() { return reviewRecorder.status(); },
   async "record-stop"({ discard }) { return reviewRecorder.stop(Boolean(discard)); },
+  // Single sign-on: the provider's page cannot run in the frame, so it opens in a window of the
+  // extension's own. It ends at this extension's chromiumapp.org address with a one-time code, which
+  // the frame trades for its sign-in (lib/ext-sign-in.ts). state ties the answer to this request, and
+  // the verifier, kept here, makes the code useless to anyone who only reads the window's address.
+  async sso() {
+    const b64 = (bytes) => btoa(String.fromCharCode(...new Uint8Array(bytes))).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+    const state = b64(crypto.getRandomValues(new Uint8Array(24)));
+    const verifier = b64(crypto.getRandomValues(new Uint8Array(32)));
+    const challenge = b64(await crypto.subtle.digest("SHA-256", new TextEncoder().encode(verifier)));
+    const url = `${origin}/api/ext/sso?${new URLSearchParams({ ext: chrome.runtime.id, state, challenge })}`;
+    const back = await chrome.identity.launchWebAuthFlow({ url, interactive: true });
+    const answer = new URLSearchParams(new URL(back).hash.slice(1));
+    if (answer.get("state") !== state) throw new Error("登入沒有完成，請再試一次");
+    if (answer.get("error") === "denied") throw new Error("已取消登入");
+    if (!answer.get("code")) throw new Error("登入沒有完成，請再試一次");
+    return { code: answer.get("code"), verifier };
+  },
   async open({ url }) {
     if (new URL(url).origin !== origin) throw new Error("只能開啟 AIntern");
     await chrome.tabs.create({ url });
