@@ -5,7 +5,7 @@
 
 <p><strong>AIntern 瀏覽器擴充功能：在任何網頁旁邊執行你的流程。</strong></p>
 
-[![Release](https://img.shields.io/github/v/release/zyx1121/aintern-extension?style=flat-square&sort=semver)](https://github.com/zyx1121/aintern-extension/releases)
+[![Release](https://img.shields.io/github/v/release/zyx-tw/aintern-extension?style=flat-square&sort=semver)](https://github.com/zyx-tw/aintern-extension/releases)
 
 [English](README.md) | **繁體中文** | [简体中文](README.zh-CN.md)
 
@@ -21,7 +21,7 @@
 
 ## 安裝
 
-1. 下載 [aintern-extension.zip](https://github.com/zyx1121/aintern-extension/releases/latest/download/aintern-extension.zip) 並解壓縮。
+1. 下載 [aintern-extension.zip](https://github.com/zyx-tw/aintern-extension/releases/latest/download/aintern-extension.zip) 並解壓縮。
 2. Chrome 打開 `chrome://extensions`，打開右上角的「開發人員模式」。
 3. 按「載入未封裝項目」，選解壓縮後的資料夾。
 4. 按擴充功能圖示，打開選項，填你們的 AIntern 網址（例如 `https://aintern.example.edu`）後儲存。

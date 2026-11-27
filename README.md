@@ -4,7 +4,7 @@
 
 <p><strong>The AIntern browser extension: run your workflows beside any web page.</strong></p>
 
-[![Release](https://img.shields.io/github/v/release/zyx1121/aintern-extension?style=flat-square&sort=semver)](https://github.com/zyx1121/aintern-extension/releases)
+[![Release](https://img.shields.io/github/v/release/zyx-tw/aintern-extension?style=flat-square&sort=semver)](https://github.com/zyx-tw/aintern-extension/releases)
 
 **English** | [繁體中文](README.zh-TW.md) | [简体中文](README.zh-CN.md)
 
@@ -20,7 +20,7 @@ Staff at an organisation that runs AIntern use this extension in Chrome. It open
 
 ## Install
 
-1. Download [aintern-extension.zip](https://github.com/zyx1121/aintern-extension/releases/latest/download/aintern-extension.zip) and unzip it.
+1. Download [aintern-extension.zip](https://github.com/zyx-tw/aintern-extension/releases/latest/download/aintern-extension.zip) and unzip it.
 2. Open `chrome://extensions` in Chrome and turn on **Developer mode** (top right).
 3. Click **Load unpacked** and choose the unzipped folder.
 4. Click the extension icon, open its options, enter your AIntern address (for example `https://aintern.example.edu`) and save.
